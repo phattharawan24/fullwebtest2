@@ -70,14 +70,15 @@ let cardChoosenID = [];
 let score = 0;
 
 function flipcard() {
-    let cardID = this.getAttribute('id');
+    let cardID = parseInt(this.getAttribute('id'));
     this.setAttribute('src',cardArray[cardID].image);
     cardChoosen.push(cardArray[cardID]);
-    cardChoosenID.push(cardID);
+    cardChoosenID.push(cardID+5);
     if(cardChoosen.length === 2) {
         document.getElementById('gameConsole').textContent = 'ไหนดูสิ ใช่หรือเปล่านะ...';
-        setTimeout(checkForMatch,2000);
+        setTimeout(checkForMatch,1000);
     }
+    console.log(cardChoosenID[0],cardChoosenID[1]);
 }
 
 function checkForMatch() {
